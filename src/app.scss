@@ -1,0 +1,14 @@
+.body__container{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: calc(100vh - 60px);
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+.main__container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
