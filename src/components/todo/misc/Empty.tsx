@@ -1,5 +1,6 @@
 import React from "react";
-const emptyStyle = {
+
+const emptyStyle: React.CSSProperties = {
   margin: "0 auto",
   fontSize: "1.2rem",
   color: "ccc",

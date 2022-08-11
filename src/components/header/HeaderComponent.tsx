@@ -1,7 +1,11 @@
 import React from 'react';
 import "./header.scss";
 
-const HeaderComponent = ({handleMenu}) => {
+interface HeaderProps {
+  handleMenu: () => void;
+}
+
+const HeaderComponent = ({handleMenu}: HeaderProps) => {
   return (
     <header className='header__container'>
       <a href="" className='header__logo'>My ToDo</a>

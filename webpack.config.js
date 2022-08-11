@@ -3,21 +3,27 @@ const HTMLWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   mode: "development",
-  entry: path.join(__dirname, "src", "index.js"),
+  entry: path.join(__dirname, "src", "index.tsx"),
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, "dist")
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(jsx|ts|tsx)$/,
         exclude: /node_modules/,
-        use: {
+        use: [
+          {
           loader: "babel-loader",
           options: {
             presets: ["@babel/preset-env", "@babel/preset-react"],
           }
+        },
+        {
+          loader: "ts-loader"
         }
+      ]
       },
       {
         test: /\.s[ac]ss$/i,
@@ -41,8 +47,14 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    port: 3000,
+    hot: true,
+    open: true,
+    historyApiFallback: true,
+  },
   resolve: {
-    extensions: ["", ".js", ".jsx"]
+    extensions: ["", ".js", ".jsx", ".tsx", ".ts"]
   },
   plugins: [
     new HTMLWebpackPlugin({

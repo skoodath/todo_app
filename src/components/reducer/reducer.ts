@@ -1,22 +1,20 @@
-const getTodos = () => {
+import { Action, AppState, Todo } from "../../declarations"
+
+
+const getTodos = (): Todo[] | [] => {
   return localStorage.getItem("todos") === null
   ? []
   :
-  JSON.parse(localStorage.getItem("todos"))
+  JSON.parse(localStorage.getItem("todos") || "")
   }
 
-export const initialState = {
-  todoText: "",
-  todos: getTodos()
+export const initialState: AppState = {
+  todos: getTodos(),
+  filterTodos: "All"
 }
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case "TODO_TEXT":
-      return {
-        ...state,
-        todoText: action.payload
-      }
     case "ADD_TODO":
       return {
         ...state,

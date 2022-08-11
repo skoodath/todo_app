@@ -1,14 +1,20 @@
-import React, { useContext } from "react";
-import TodoContext from "../../context/TodoContext";
+import React from "react";
+import { Todo } from "../../../declarations";
 
-const ViewTemplate = ({todo, handleFormEdit }) => {
+interface ViewProps {
+  todo: Todo;
+  handleFormEdit: () => void 
+  onDelete: () => void
+  onToggle: () => void
+}
+
+const ViewTemplate = ({todo, handleFormEdit, onDelete, onToggle }: ViewProps) => {
   
-  const { handleDelete, handleToggle} = useContext(TodoContext);
   
   return (
     <div className='todo__view_container'>
       <label className="todo__status">
-        <input type="checkbox" name="todostatus" className='todo__check' onChange={() => handleToggle(todo.id)} />
+        <input type="checkbox" name="todostatus" className='todo__check' onChange={onToggle} />
         <div className="todo__done_icon"></div>
       </label>
       <p className={todo.done ? 'todo__text_done': 'todo__text'}>{todo.title}</p>
@@ -21,7 +27,7 @@ const ViewTemplate = ({todo, handleFormEdit }) => {
           </button>}
         <button 
           className="todo__button_common todo__delete"
-          onClick={() => handleDelete(todo.id)}
+          onClick={onDelete}
           >Delete</button>
       </div>
     </div>
