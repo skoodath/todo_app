@@ -20,3 +20,8 @@ export const toggleTodo = (todoId: string): Action => ({
   type: "TOGGLE_TODO",
   payload: todoId
 })
+
+export const filterTodo = (status: string): Action => ({
+  type: "FILTER_TODO",
+  payload: status
+})

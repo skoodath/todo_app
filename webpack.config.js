@@ -1,12 +1,12 @@
 const path = require("path");
-const HTMLWebpackPlugin = require("html-webpack-plugin")
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: path.join(__dirname, "src", "index.tsx"),
-  devtool: 'source-map',
+  devtool: "source-map",
   output: {
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
@@ -15,37 +15,37 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
-          }
-        },
-        {
-          loader: "ts-loader"
-        }
-      ]
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env", "@babel/preset-react"],
+            },
+          },
+          {
+            loader: "ts-loader",
+          },
+        ],
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
           {
-            loader: "style-loader"
+            loader: "style-loader",
           },
           {
             loader: "css-loader",
           },
           {
-            loader: "resolve-url-loader"
+            loader: "resolve-url-loader",
           },
           {
             loader: "sass-loader",
             options: {
-              sourceMap: true
-            }
-          }
-        ]
-      }
-    ]
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+    ],
   },
   devServer: {
     port: 3000,
@@ -54,11 +54,11 @@ module.exports = {
     historyApiFallback: true,
   },
   resolve: {
-    extensions: ["", ".js", ".jsx", ".tsx", ".ts"]
+    extensions: ["", ".js", ".jsx", ".tsx", ".ts"],
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: path.join(__dirname, "src", "index.html")
-    })
-  ]
-}
+      template: path.join(__dirname, "src", "index.html"),
+    }),
+  ],
+};

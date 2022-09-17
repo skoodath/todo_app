@@ -42,6 +42,11 @@ export const reducer = (state = initialState, action: Action) => {
           return todo.id === action.payload ? {...todo, done: !todo.done} : {...todo}
         })
       }
+    case "FILTER_TODO":
+      return {
+        ...state,
+        filterTodos: action.payload
+      }
     default:
       return state;
   }

@@ -15,3 +15,4 @@ export type Action =
 | { type: "EDIT_TODO", payload: {id: string, text: string} }
 | { type: "DELETE_TODO", payload: string }
 | { type: "TOGGLE_TODO", payload: string }
+| { type: "FILTER_TODO", payload: string }

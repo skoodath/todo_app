@@ -1,5 +1,5 @@
 import React from "react";
-import { createRoot } from 'react-dom/client';
+import { createRoot } from "react-dom/client";
 import App from "./app";
 import { TodoContextProvider } from "./components/context/TodoContext";
 import "./index.scss";
@@ -11,6 +11,5 @@ root.render(
     <TodoContextProvider>
       <App />
     </TodoContextProvider>
-
   </React.StrictMode>
 );

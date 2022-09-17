@@ -2,13 +2,13 @@
   width: 100vw;
   height: 60px;
   position: sticky;
-  background-color: rgb(0, 122, 112);
+  background-color: #001c48e6;
   color: #fff;
   display: flex;
   align-items: center;
   padding: 0 1rem;
   z-index: 1;
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     padding: 0 3rem;
   }
 }
@@ -19,4 +19,21 @@
   &:visited {
     color: #fff;
   }
+}
+.navbar__small {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0 1rem 0 0;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+.navbar__icon {
+  background-color: #fff;
+  display: inline-block;
+  width: 30px;
+  height: 2.5px;
+  border-radius: 20px;
 }
