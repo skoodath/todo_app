@@ -2,7 +2,6 @@ const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "production",
   entry: path.join(__dirname, "src", "index.tsx"),
   devtool: "source-map",
   output: {
